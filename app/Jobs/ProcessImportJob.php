@@ -103,7 +103,9 @@ class ProcessImportJob implements ShouldQueue
                 if(count($sales) >= $batchSize) {
                     Sale::insert($sales);
                     $sales = [];
-                } elseif(count($errors) >= $batchSize) {
+                } 
+                
+                if(count($errors) >= $batchSize) {
                     ImportError::insert($errors);
                     $errors = [];
                 }
