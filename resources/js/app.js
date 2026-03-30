@@ -1,1 +1,15 @@
-import './bootstrap';
+if(page === 'create') {
+    import('./imports.js').then(module => {
+        module.sendFile();
+        module.UIEvents();
+    });
+}
+
+if(page === 'index') {
+    import('./index.js').then(module => {
+        setInterval(() => {
+            module.queryData();
+        }, 10000);
+        module.queryData();
+    });
+}
