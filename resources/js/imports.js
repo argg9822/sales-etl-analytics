@@ -36,12 +36,10 @@ export function sendFile() {
         .then(response => {
             fileInput.value = '';
             FILE_NAME_DISPLAY.textContent = '';
-            const routeDetails = route('imports.index.web');
 
             SUBMIT_BUTTON.textContent = 'Cargar';
-            successMessage.innerHTML = `${response?.data?.message}, <a href="${routeDetails}">ver detalles</a>`  || 'Archivo cargado exitosamente.';
+            addSuccessMessage(response?.data?.message || 'Archivo cargado exitosamente.');
             errorMessage.style.display = 'none';
-            successMessage.style.display = 'block';
         })
         .catch(error => {
             SUBMIT_BUTTON.disabled = false;
@@ -49,14 +47,13 @@ export function sendFile() {
             errorMessage.textContent = error.response?.data?.message || 'Ocurrió un error al enviar el archivo.';
             errorMessage.style.display = 'block';
             console.error(error);
-            
         });
     }
 }
 
 function sendingMode() {
     SUBMIT_BUTTON.disabled = true;
-    SUBMIT_BUTTON.textContent = 'Cargando archivo...';
+    SUBMIT_BUTTON.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i>';
 }
 
 export function UIEvents() {
@@ -106,5 +103,17 @@ function dragFile(fileInput) {
                 SUBMIT_BUTTON.disabled = true;
             }
         });
+    }
+}
+
+function addSuccessMessage(message) {
+    const successMessage = document.getElementById('success-message');
+    const routeDetails = route('imports.index.web');
+
+    if(successMessage) {
+        const newMessage = document.createElement('p');
+        newMessage.innerHTML = `${message} <a href="${routeDetails}" class="view-details">Ver detalles</a>`;
+        successMessage.appendChild(newMessage);
+        successMessage.style.display = 'block';
     }
 }

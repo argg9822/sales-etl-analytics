@@ -9,6 +9,8 @@ export function queryData() {
                     CACHE_DATA = response.data.data.imports;
                     table(response.data.data.imports);
                 }
+            } else {
+                    table([]);
             }
         })
         .catch(error => {
@@ -46,9 +48,9 @@ function table(data){
                         <tr>
                             <td>${importRecord.file_name}</td>
                             <td>${formatDate(importRecord.created_at)}</td>
-                            <td>${importRecord.total_records}</td>
-                            <td>${importRecord.processed_records}</td>
-                            <td>${importRecord.errors_count}</td>
+                            <td>${importRecord.total_records || '-'}</td>
+                            <td>${importRecord.processed_records || '-'}</td>
+                            <td>${importRecord.errors_count || '-'}</td>
                             <td>
                                 <span class="status-badge status-${importRecord.status}" title="${translationStatus(importRecord.status)}">
                                     ${iconsMap(importRecord.status)}
@@ -64,7 +66,7 @@ function table(data){
                     `;
                 }).join('')
             : 
-                `<tr><td colspan="6" class="text-center">No se han encontrado importaciones.</td></tr>`;
+                `<tr><td colspan="7">No se han encontrado importaciones.</td></tr>`;
     tableBody.innerHTML = rows;
 }
 

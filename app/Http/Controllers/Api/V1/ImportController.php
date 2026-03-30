@@ -48,12 +48,11 @@ class ImportController extends Controller
         $filename = time() . '_' . $file->getClientOriginalName();
         $filePath = $file->storeAs('imports', $filename);
 
-
         // Procesar archivo CSV
         $this->importService->processImport($filePath);
 
         return response()->json([
-            'message' => 'El archivo se ha subido y se está procesando.', 
+            'message' => "El archivo $filename se ha subido y se está procesando.", 
             'file_path' => $filePath
         ], Response::HTTP_CREATED);
     }

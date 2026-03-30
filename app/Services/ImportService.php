@@ -3,7 +3,6 @@
 namespace App\Services;
 
 use App\Jobs\ProcessImportJob;
-use Illuminate\Support\Facades\Log;
 
 class ImportService
 {

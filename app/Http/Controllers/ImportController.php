@@ -1,11 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Http\Requests\ImportStoreRequest;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
 use App\Models\Import;
+use Illuminate\Support\Facades\Log;
 
 class ImportController extends Controller
 {
@@ -30,10 +27,15 @@ class ImportController extends Controller
      */
     public function show(Import $import)
     {
-        $import->load('errors');
-
+        $import->loadMissing(['errors']);
+        
+        $errors = $import->errors()
+            ->latest()
+            ->paginate(50);
+        
         return view('imports.show', [
             'import' => $import,
+            'errors' => $errors,
         ]);
     }
 }

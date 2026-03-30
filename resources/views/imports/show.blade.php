@@ -1,6 +1,6 @@
 @extends('main')
 
-@section('title', 'Importar CSV de Ventas')
+@section('title', 'Detalle de Importación - ' . $import->file_name)
 
 @section('content')
 
@@ -15,7 +15,7 @@
     </div>
     <div class="summary-card card-errors">
         <span class="label">Errores</span>
-        <span class="value">{{ count($import->errors) }}</span>
+        <span class="value">{{ $errors->total() }}</span>
     </div>
     
 </div>
@@ -23,7 +23,10 @@
 <div class="error-log-container">
     <div class="error-log-header">
         <h4 style="margin:0; color: #ff8fa3; font-size: 14px;">Detalle de Errores</h4>
-        <input type="text" class="error-search" placeholder="Buscar por fila o mensaje...">
+        {{-- Paginación de errores --}}
+        <div class="errors-pagination">
+            {{ $errors->links() }}
+        </div>
     </div>
     
     <div class="error-scroll-area">
@@ -35,8 +38,8 @@
                 </tr>
             </thead>
             <tbody>
-                @if(count($import->errors) > 0)
-                    @foreach($import->errors as $error)
+                @if($errors->total() > 0)
+                    @foreach($errors as $error)
                         <tr>
                             <td class="row-number">#{{ $error->row_number }}</td>
                             <td class="error-msg">{{ $error->error_message }}</td>

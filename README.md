@@ -4,7 +4,7 @@ Sistema de análisis de ventas retail con procesamiento masivo de archivos CSV y
 
 ---
 
-# 1. Guía de Instalación y Ejecución
+# 1. Instalación y ejecución
 
 ## Requisitos del sistema
 
@@ -29,3 +29,53 @@ cd sales-etl-analytics
 ```bash
 composer install
 ```
+
+```bash
+npm install
+```
+
+## Configuración de variables de entorno
+
+### Configurar la conexión a la base de datos en el archivo .env, ejemplo:
+```bash
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=sales_etl
+DB_USERNAME=root
+DB_PASSWORD=
+```
+### Generar clave de la aplicación
+```bash
+php artisan key:generate
+```
+
+## Ejecutar migraciones de base de datos
+```bash
+php artisan migrate
+```
+
+## Configuración de colas (procesamiento segundo plano)
+En el archivo .env configurar:
+
+```bash
+QUEUE_CONNECTION=database
+```
+
+Iniciar el "worker"
+```bash
+php artisan queue:work
+```
+
+## Inicializar proyecto
+Iniciar servidor de desarrollo
+
+```bash
+php artisan serve
+```
+
+Compilar recursos frontend:
+```bash
+npm run dev
+```
+

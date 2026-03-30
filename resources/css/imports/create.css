@@ -8,7 +8,7 @@
 }
 
 .hr::before {
-    content: "OR";
+    content: "";
     position: absolute;
     top: 50%;
     left: 50%;
@@ -36,4 +36,12 @@
     border-color: #00b4d8;
     background-color: rgba(0, 180, 216, 0.05);
     color: #ffffff;
+}
+
+.view-details{
+    color: #00b4d8;
+    text-decoration: none;
+    font-weight: 600;
+    margin-left: 10px;
+    transition: color 0.3s ease;
 }

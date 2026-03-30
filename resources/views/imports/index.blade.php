@@ -1,6 +1,6 @@
 @extends('main')
 
-@section('title', 'Importar CSV de Ventas')
+@section('title', 'Listado de archivos importados')
 
 @section('content')
 

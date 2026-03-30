@@ -9,7 +9,7 @@ if(page === 'index') {
     import('./index.js').then(module => {
         setInterval(() => {
             module.queryData();
-        }, 10000);
+        }, 5000);
         module.queryData();
     });
 }

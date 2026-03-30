@@ -79,14 +79,11 @@ class ProcessImportJob implements ShouldQueue
                 $counter++;
 
                 if($counter % 1000 === 0) {
-                    Log::info('Procesadas ' . $counter . ' filas del archivo CSV');
                     gc_collect_cycles();
                 }
 
                 $data = array_combine($header, $row);
                 $validatedData = $this->dataValidate($data);
-
-                Log::info('Tiene errores?'. $validatedData['hasErrors'] . ' fila ' . $counter);
 
                 if($validatedData['hasErrors']) {
                     foreach($validatedData['errors'] as $error) {
@@ -104,11 +101,9 @@ class ProcessImportJob implements ShouldQueue
                 }
                 
                 if(count($sales) >= $batchSize) {
-                    Log::info('Guardando datos en la base de datos: ' . count($sales) . ' registros');
                     Sale::insert($sales);
                     $sales = [];
                 } elseif(count($errors) >= $batchSize) {
-                    Log::error('Guardando errores en la base de datos: ' . count($errors) . ' errores');
                     ImportError::insert($errors);
                     $errors = [];
                 }
