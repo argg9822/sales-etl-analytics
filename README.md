@@ -109,7 +109,7 @@ Permite cargar un archivo CSV.
 
 **Endpoint**
 
-POST /api/v1/imports
+🟡 POST /api/v1/imports
 
 **Descripción**
 
@@ -123,7 +123,7 @@ Permite visualizar todas las importaciones realizadas.
 
 **Endpoint**
 
-GET /api/v1/imports
+🟢 GET /api/v1/imports
 
 ---
 
@@ -133,7 +133,7 @@ Devuelve las importaciones registradas con el número de errores que contenga el
 
 **Endpoint**
 
-GET /api/v1/imports
+🟢 GET /api/v1/imports
 
 ---
 
@@ -143,7 +143,7 @@ Permite consultar los errores detectados durante el procesamiento de un archivo 
 
 **Endpoint**
 
-GET /api/v1/imports/{id}/errors
+🟢 GET /api/v1/imports/{id}/errors
 
 **Ejemplo**
 
@@ -157,7 +157,7 @@ Permite eliminar una importación específica.
 
 **Endpoint**
 
-DELETE /api/v1/imports/{id}
+🔴 DELETE /api/v1/imports/{id}
 
 **Ejemplo**
 
@@ -171,7 +171,7 @@ Devuelve información agregada basada en los registros procesados de una importa
 
 **Endpoint**
 
-GET /api/v1/reports/summary
+🟢 GET /api/v1/reports/summary
 
 **Parámetros**
 
