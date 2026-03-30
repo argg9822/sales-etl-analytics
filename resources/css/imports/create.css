@@ -1,0 +1,47 @@
+.hr {
+    border: none;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #415a77, transparent);
+    margin: 40px 0;
+    position: relative;
+    width: 100%;
+}
+
+.hr::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #030a17; /* Color sólido para tapar la línea */
+    padding: 0 15px;
+    color: #778da9;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.container-dropzone {
+    border: 2px dashed #415a77;
+    border-radius: 12px;
+    cursor: pointer;
+    padding: 40px 20px;
+    text-align: center;
+    color: #778da9;
+    background-color: rgba(27, 38, 59, 0.3);
+    transition: all 0.3s ease;
+}
+
+.container-dropzone:hover, .dragover {
+    border-color: #00b4d8;
+    background-color: rgba(0, 180, 216, 0.05);
+    color: #ffffff;
+}
+
+.view-details{
+    color: #00b4d8;
+    text-decoration: none;
+    font-weight: 600;
+    margin-left: 10px;
+    transition: color 0.3s ease;
+}

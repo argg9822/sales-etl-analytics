@@ -1,0 +1,67 @@
+.imports-results {
+    width: 100%;
+    overflow-x: auto;
+    background-color: rgba(13, 27, 42, 0.4);
+    border-radius: 12px;
+    border: 1px solid #415a77;
+    margin-top: 25px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.imports-results table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 14px;
+}
+
+.imports-results thead {
+    background-color: rgba(27, 38, 59, 0.8);
+}
+
+.imports-results th {
+    padding: 16px;
+    color: #00b4d8;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 12px;
+    border-bottom: 2px solid #1b263b;
+}
+
+.imports-results td {
+    padding: 16px;
+    color: #e0e1dd;
+    border-bottom: 1px solid rgba(65, 90, 119, 0.2);
+    transition: background-color 0.2s ease;
+}
+
+.imports-results tbody tr:hover td {
+    background-color: rgba(119, 141, 169, 0.1);
+    color: #ffffff;
+}
+
+.imports-results tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.status-completed {
+    color: #b7efc5;
+}
+
+.status-processing {
+    color: #ffb703;
+}
+
+.status-error {
+    color: #ff8fa3;
+}
+
+.status-completed-errors{
+    color: #fbff03;
+}
+
+.alert-success a{
+    color: #b7efc5;
+    text-decoration: none;
+}
